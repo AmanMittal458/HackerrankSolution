@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class TwoCharacters {
+	static boolean check(String s) {
+		int i, j;
+		for (int k = 0; k < s.length() - 1; k++) {
+			if (s.charAt(k) == s.charAt(k + 1))
+				return false;
+		}
+		return true;
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int len = sc.nextInt();
+		String s = sc.next();
+		String str = "";
+		if(len==2){
+			if(s.charAt(0)!=s.charAt(1)){
+				System.out.println(2);
+			}
+		}else{
+		for (int i = 0; i < len; i++) {
+			if (!str.contains(String.valueOf(s.charAt(i)))) {
+				str += s.charAt(i);
+			}
+		}
+		int maxlen = 0;
+		char ch[] = str.toCharArray();
+		for (int i = 0; i < ch.length - 1; i++) {
+			for (int j = i + 1; j < ch.length; j++) {
+				String str1 = s;
+				for (int k = 0; k < s.length(); k++) {
+					if (s.charAt(k) != ch[i] && s.charAt(k) != ch[j]) {
+						str1 = str1.replace(String.valueOf(s.charAt(k)), "");
+					}
+				}
+				if (check(str1)) {
+					if (maxlen < str1.length()) {
+						maxlen = str1.length();
+					}
+				}
+
+			}
+		}
+		System.out.println(maxlen);
+		}
+	}
+}
