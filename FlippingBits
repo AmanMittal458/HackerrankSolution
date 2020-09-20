@@ -1,0 +1,15 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+public class FlippingBits {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int q=sc.nextInt();
+	while(q>0){
+		long n=sc.nextLong();
+		BigInteger num=BigInteger.valueOf(n);
+		BigInteger num2=new BigInteger("4294967295");
+		System.out.println(num2.subtract(num));
+		q--;
+	}
+}
+}
